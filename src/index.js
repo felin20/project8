@@ -1,15 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import "./components/styles.css";
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App';
+import MediaQueryProvider from './MediaQueryProvider';
 
-ReactDOM.render(
+const root = createRoot(document.getElementById('root'));
+
+root.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById("root")
+    <MediaQueryProvider>
+      <App />
+    </MediaQueryProvider>
+  </React.StrictMode>
 );
-
-reportWebVitals(console.log);

@@ -529,4 +529,4 @@ function ProductListingPage() {
     </MediaQueryProvider>
   );
 }
-export default  ProductListingPage;
+export default ProductListingPage;

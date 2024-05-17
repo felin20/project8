@@ -211,12 +211,10 @@ function ProductListingPage() {
               >
                 <Button onClick={openAddProductModal}>Add Product</Button>
               </div>
-              <div
-                className="filter-icon"
-                style={{ position: "relative", top: "11px", left: "0px" }}
-              >
-                <Button icon={AdjustIcon} onClick={toggleFilters} />
-              </div>
+              <div className="filter-icon" style={{ position: "relative", top: "11px", left: "0px" }}>
+  <Button icon={AdjustIcon} onClick={toggleFilters} />
+</div>
+
             </div>
             {showFilters && (
               <div

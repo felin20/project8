@@ -1,19 +1,25 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = require("react");
-var ImageContext_1 = require("./ImageContext");
-var MyComponent = function () {
-    var _a = (0, ImageContext_1.useImageContext)(), imageURL = _a.imageURL, setImage = _a.setImage; // Destructure imageURL and setImage from the context
-    var handleImageChange = function (event) {
-        var newImage = event.target.files[0];
-        setImage(URL.createObjectURL(newImage)); // Set image URL using setImage
-    };
-    return (<div>
-      <input type="file" onChange={handleImageChange}/>
-      {imageURL && (<div>
-          <h2>Preview:</h2>
-          <img src={imageURL} alt="Preview"/>
-        </div>)}
-    </div>);
+import React from 'react';
+import MediaQueryProvider from '../MediaQueryProvider';
+
+const MyComponent = () => {
+  return (
+    <div>
+      <h1>My Component</h1>
+      <MediaQueryProvider>
+        {/* Here you can use any components that rely on the MediaQueryProvider */}
+        <ChildComponent />
+      </MediaQueryProvider>
+    </div>
+  );
 };
-exports.default = MyComponent;
+
+const ChildComponent = () => {
+  return (
+    <div>
+      <h2>Child Component</h2>
+      {/* Other JSX elements */}
+    </div>
+  );
+};
+
+export default MyComponent;

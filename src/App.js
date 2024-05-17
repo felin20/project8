@@ -1,19 +1,25 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-// App.js
-var react_1 = require("react");
-var react_router_dom_1 = require("react-router-dom");
-var polaris_1 = require("@shopify/polaris");
-var en_json_1 = require("@shopify/polaris/locales/en.json");
-var ProductListingPage_1 = require("./components/ProductListingPage");
-var ImageContext_1 = require("./components/ImageContext");
-function App() {
-    return (<polaris_1.AppProvider i18n={en_json_1.default}>
-      <ImageContext_1.ImageProvider>
-        <react_router_dom_1.Routes location={""}>
-          <react_router_dom_1.Route path="/" Component={ProductListingPage_1.default}/>
-        </react_router_dom_1.Routes>
-      </ImageContext_1.ImageProvider>
-    </polaris_1.AppProvider>);
-}
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { AppProvider } from "@shopify/polaris";
+import enTranslations from "@shopify/polaris/locales/en.json";
+import ProductListingPage from "./components/ProductListingPage";
+import { ImageProvider } from "./components/ImageContext";
+import { useState } from "react";
+
+const App = () => {
+  const [state, setState] = useState("test");
+
+  return (
+    <AppProvider i18n={enTranslations}>
+      <ImageProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<ProductListingPage />} />
+          </Routes>
+        </Router>
+      </ImageProvider>
+    </AppProvider>
+  );
+};
+
 export default App;
